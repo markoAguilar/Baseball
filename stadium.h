@@ -14,6 +14,15 @@ private:
     string date_opened;
     int seating_capacity;
 public:
+    stadium(){
+        stadium_name="N/A";
+        team_teame="N/A";
+        street_address="N/A";
+        city_state_zip="N/A";
+        box_office="N/A";
+        date_opened="N/A";
+        seating_capacity=0;
+    }
     void set_stadium_name(string a){
         stadium_name=a;
     }
