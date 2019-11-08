@@ -1,4 +1,5 @@
 The information is in the following format:
+- char League Type('A' - American or 'N' - National)
 - Stadium Name
 - Team Name
 - Street Address
@@ -6,13 +7,13 @@ The information is in the following format:
 - Box Office #
 - Date Opened
 - Seating Capacity
-- Has Grass Terrain
-
+- char Has Grass Terrain
+- pixel Coordinates int int (coming soon)
 
 AMERICAN LEAGUE TEAMS:
 -----------------------------
 
-
+A
 Angels Stadium of Anaheim
 Los Angeles Angels of Anaheim
 2000 E Gene Autry Way, 
@@ -22,7 +23,7 @@ Opened – April 19, 1966
 Capacity – 45,483
 Y
 
-
+A
 Comerica Park
 Detroit Tigers
 2100 Woodward Ave, 
@@ -32,7 +33,7 @@ Opened – April 11, 2000
 Capacity – 41,681
 Y
 
-
+A
 Fenway Park
 Boston Red Sox
 4 Yawkey Way, 
@@ -42,7 +43,7 @@ Opened – April 20, 1912
 Capacity – 37,499 (night) & 37,071 (day)
 Y
 
-
+A
 Globe Life Park in Arlington
 Texas Rangers
 1000 Ballpark Way,
@@ -52,7 +53,7 @@ Opened – April 1, 1994
 Capacity – 48,114
 Y
 
-
+A
 Kauffman Stadium
 Kansas City Royals
 1 Royal Way
@@ -62,7 +63,7 @@ Opened – April 10, 1973
 Capacity – 37,903 
 Y
 
-
+A
 Minute Maid Park
 Houston Astros
 501 Crawford St,
@@ -72,7 +73,7 @@ Opened - March 30, 2000
 Capacity - 42,060
 Y
 
-
+A
 O.co Coliseum
 Oakland Athletics
 7000 Coliseum Way
@@ -82,7 +83,7 @@ Opened - September 18, 1966
 Capacity - 37,090 (April - August) & 55,945 (Sept - Jan)
 Y
 
-
+A
 Oriole Park at Camden Yards
 Baltimore Orioles
 333 West Camden Street
@@ -92,7 +93,7 @@ Opened - April 6, 1992
 Capacity - 48,187
 Y
 
-
+A
 Progressive Field
 Cleveland Indians
 2401 Ontario Street
@@ -102,7 +103,7 @@ Opened - April 2, 1994
 Capacity - 42,404
 Y
 
-
+A
 Rogers Centre
 Toronto Blue Jays
 1 Blue Jays Way
@@ -112,7 +113,7 @@ Opened - June 3, 1989
 Capacity - 49,282
 N
 
-
+A
 SafeCo Field
 Seattle Mariners
 1516 First Avenue South
@@ -122,7 +123,7 @@ Opened - July 15, 1999
 Capacity - 47,476
 Y
 
-
+A
 Target Field
 Minnesota Twins
 353 N 5th St
@@ -132,7 +133,7 @@ Opened - April 12, 2010
 Capacity - 39,021
 Y
 
-
+A
 Tropicana Field
 Tampa Bay Rays
 1 Tropicana Dr
@@ -142,7 +143,7 @@ Opened - March 3, 1990
 Capacity - 31,042 (Regular Season) 42,735 (Postseason)
 N
 
-
+A
 US Cellular Field
 Chicago White Sox
 333 West 35th Street
@@ -152,7 +153,7 @@ Opened - April 18, 1991
 Capacity - 40,615
 Y
 
-
+A
 Yankee Stadium
 New York Yankees
 1 E 161st St
@@ -162,11 +163,10 @@ Opened - April 16, 2009
 Capacity - 50,291
 Y
 
-
 NATIONAL LEAGUE TEAMS:
 --------------------------------
 
-
+N
 AT&T Park
 San Francisco Giants
 24 Willie Mays Plaza
@@ -176,7 +176,7 @@ Opened - April 11, 2000
 Capacity - 41,915
 Y
 
-
+N
 Busch Stadium
 St. Louis Cardinals
 700 Clark Street
@@ -186,7 +186,7 @@ Opened - April 10, 2006
 Capacity - 46,861
 Y
 
-
+N
 Chase Field
 Arizona Diamondbacks
 401 East Jefferson Street
@@ -196,7 +196,7 @@ Opened - March 31, 1998
 Capacity - 48,633
 N
 
-
+N
 Citi Field
 New York Mets
 126th St. & Roosevelt Ave.
@@ -206,7 +206,7 @@ Opened - April 13, 2009
 Capacity - 41,922
 Y
 
-
+N
 Citizens Bank Park
 Philadelphia Phillies
 1 Citizens Bank Way
@@ -216,7 +216,7 @@ Opened - April 3, 2004
 Capacity - 43,651
 Y
 
-
+N
 Coors Field
 Colorado Rockies
 2001 Blake St
@@ -226,7 +226,7 @@ Opened - April 26, 1995
 Capacity - 50,480
 Y
 
-
+N
 Dodger Stadium
 Los Angeles Dodgers
 1000 Elysian Park Avenue
@@ -236,7 +236,7 @@ Opened - April 10, 1962
 Capacity - 56,000
 Y
 
-
+N
 Great America Ball Park
 Cincinnati Reds
 100 Joe Nuxhall Way
@@ -246,7 +246,7 @@ Opened - March 31, 2003
 Capacity - 42,319
 Y
 
-
+N
 Marlins Park
 Miami Marlins
 501 Marlins Way
@@ -256,7 +256,7 @@ Opened - April 4, 2012
 Capacity - 37,442
 Y
 
-
+N
 Miller Park
 Milwaukee Brewers
 1 Brewers Way
@@ -266,7 +266,7 @@ Opened - April 6, 2001
 Capacity - 41,900
 Y
 
-
+N
 Nationals Park
 Washington Nationals
 1500 S Capitol St SE
@@ -276,7 +276,7 @@ Opened - March 30, 2008
 Capacity - 41,418
 Y
 
-
+N
 Petco Park
 San Diego Padres
 19 Tony Gwynn Drive
@@ -286,7 +286,7 @@ Opened - April 8, 2004
 Capacity - 42,524
 Y
 
-
+N
 PNC Park
 Pittsburgh Pirates
 115 Federal St
@@ -296,7 +296,7 @@ Opened - March 31, 2001
 Capacity - 38,362
 Y
 
-
+N
 Turner Field 
 Atlanta Braves
 755 Hank Aaron Drive
@@ -306,7 +306,7 @@ Opened - March 29, 1997
 Capacity - 49,586
 Y
 
-
+N
 Wrigley Field
 Chicago Cubs
 1060 West Addison Street
@@ -315,5 +315,4 @@ Chicago, IL 60613
 Opened - April 23, 1914
 Capacity - 42,374
 Y
-
 
