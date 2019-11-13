@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Widget</class>
+ <widget class="QWidget" name="Widget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>790</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Widget</string>
+  </property>
+  <widget class="QStackedWidget" name="stackedWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>791</width>
+     <height>601</height>
+    </rect>
+   </property>
+   <widget class="QWidget" name="page_Menu">
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>-50</y>
+       <width>681</width>
+       <height>231</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>30</y>
+       <width>541</width>
+       <height>201</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_Menu">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>290</y>
+       <width>161</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Menu</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_Exit">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>290</y>
+       <width>161</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Exit</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_MainMenu">
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>20</y>
+       <width>721</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Main Menu Options:</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_Major_League">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>240</y>
+       <width>271</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Major League</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_National_League">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>240</y>
+       <width>271</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>National League</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_American_League">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>340</y>
+       <width>271</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>American League</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_Custom_trip">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>340</y>
+       <width>271</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Custom Trip</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_Update_Info">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>440</y>
+       <width>271</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Update Information</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_ReturnToMenu">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>440</y>
+       <width>271</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Return To Menu</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_Major">
+    <widget class="QTableWidget" name="tableWidget_Major">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>641</width>
+       <height>541</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_ReturnToMain1">
+     <property name="geometry">
+      <rect>
+       <x>660</x>
+       <y>550</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Return To Main Menu</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_DisplayMajorLeague">
+     <property name="geometry">
+      <rect>
+       <x>660</x>
+       <y>80</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Display Map</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox_Califonia_StartPoint">
+     <property name="geometry">
+      <rect>
+       <x>660</x>
+       <y>50</y>
+       <width>111</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>11</y>
+       <width>381</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QComboBox" name="comboBox_Major_Sort"/>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox_Major_Sort_Grass"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_SelectMajor">
+        <property name="text">
+         <string>Select</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_National"/>
+   <widget class="QWidget" name="page_American"/>
+   <widget class="QWidget" name="page_CustomTrip"/>
+   <widget class="QWidget" name="page_UpdateInfo"/>
+   <widget class="QWidget" name="page_DisplayMapMajor">
+    <widget class="QGraphicsView" name="graphicsView">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>771</width>
+       <height>521</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_ReturnToMajor">
+     <property name="geometry">
+      <rect>
+       <x>612</x>
+       <y>547</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Return To Previous Menu</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

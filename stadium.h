@@ -9,28 +9,30 @@ using namespace std;
 
 class Stadium{
 private:
-    char stadium_type;
+    string stadium_type;
     string stadium_name;
     string team_name;
     string street_address;
     string city_state_zip;
     string box_office;
     string date_opened;
-    int seating_capacity;
+    string seating_capacity;
+    string grass_type;
 public:
     //DEFAULT CTOR
-    Stadium()
+    Stadium();
     //FULL CTOR
-    Stadium(char type,
+    Stadium(string stadiumType,
             string stadiumName,
             string teamName,
             string streetAddress,
             string cityStateZip,
             string boxOffice,
             string dateOpened,
-            int seatingCapacity);
-    //COPY CTOR
-    Stadium(const Stadium& source);
+            string seatingCapacity,
+            string grassType);
+
+    void set_stadium_type(string a){stadium_type = a;}
 
     void set_stadium_name(string a){stadium_name=a;}
 
@@ -44,11 +46,15 @@ public:
 
     void set_date_opened(string a){date_opened=a;}
 
-    void set_seating_capacity(int a){seating_capacity=a;}
+    void set_seating_capacity(string a){seating_capacity=a;}
+
+    void set_grass_type(string a){grass_type=a;}
+
+    string get_stadium_type(){return stadium_type;}
 
     string get_stadium_name(){return stadium_name;}
 
-    string get_team_name(){return team_teame;}
+    string get_team_name(){return team_name;}
 
     string get_street_address(){return street_address;}
 
@@ -58,12 +64,14 @@ public:
 
     string get_date_opened(){return date_opened;}
 
-    int get_seating_capacity(){return seating_capacity;}
+    string get_seating_capacity(){return seating_capacity;}
 
-    //COUT OPERATOR
-    ostream& friend operator<<(ostream out, const Stadium& stadium);
+    string get_grass_type(){return grass_type;}
 
-    //ASSIGNMENT OPERATOR
-    operator=();
+//    //COUT OPERATOR
+//    friend ostream& operator<<(ostream out, const Stadium& stadium);
+
+//    //ASSIGNMENT OPERATOR
+//    operator=();
 };
 #endif // STADIUM_H
