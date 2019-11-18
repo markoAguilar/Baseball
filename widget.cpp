@@ -45,6 +45,15 @@ Widget::Widget(QWidget *parent)
     ui->label_2->setScaledContents(true);
     ui->label_2->setPixmap(title_vacation);
 
+    ui->comboBox_Major_Sort->addItem("Sort By");
+    ui->comboBox_Major_Sort->addItem("Stadium Name");
+    ui->comboBox_Major_Sort->addItem("Team Name");
+    ui->comboBox_Major_Sort->addItem("Date Open");
+
+    ui->comboBox_Major_Sort_Grass->addItem("Grass Type");
+    ui->comboBox_Major_Sort_Grass->addItem("Real Grass");
+    ui->comboBox_Major_Sort_Grass->addItem("Artificial Grass");
+
     QString format = "QPushButton {background-color: #A3C1DA; color: black;}";
 
     ui->pushButton_Menu->setStyleSheet(format);
@@ -166,10 +175,7 @@ void Widget::on_pushButton_DisplayMajorLeague_clicked()
     ui->stackedWidget->setCurrentIndex(7);
         QString fullpath = QApplication::applicationDirPath() + "/Major_League_Baseball_team_locations.png";
 
-        img_Object = new QImage();
-        img_Object->load(fullpath);
-        QPixmap image = QPixmap::fromImage(*img_Object);
-        QPixmap pixmap = image.scaledToHeight(ui->graphicsView->height(), Qt::SmoothTransformation);
+        QPixmap pixmap = fullpath;
         QFile file(fullpath);
         file.open(QIODevice::WriteOnly);
         pixmap.save(&file, "PNG");
@@ -182,12 +188,10 @@ void Widget::on_pushButton_DisplayMajorLeague_clicked()
         QPen redPen (Qt::red);
         redPen.setWidth(1);
 
-        scene = new QGraphicsScene();
-        scene->addPixmap(pixmap);
-        //scene->addLine(75,322,466,154, redPen);
-        ui->graphicsView->setScene(scene);
-        ui->graphicsView->setSceneRect(pixmap.rect());
-        ui->graphicsView->fitInView(scene->itemsBoundingRect(), Qt::KeepAspectRatio);
+        ui->label_MajorLeagueMap->setScaledContents(true);
+        ui->label_MajorLeagueMap->setPixmap(pixmap);
+
+
 }
 
 
@@ -198,5 +202,41 @@ void Widget::on_pushButton_ReturnToMajor_clicked()
 
 void Widget::on_pushButton_SelectMajor_clicked()
 {
+    switch (ui->comboBox_Major_Sort->currentIndex()) {
+        case 0: switch (ui->comboBox_Major_Sort_Grass->currentIndex()) {
+            case 0: DisplayTable_MajorLeague();
+                break;
+            case 1: DisplayTable_MajorLeagueRealGrass();
+                break;
+            case 2: DisplayTable_MajorLeagueArtifGrass();
+                break;
+        } break;
 
+        case 1: switch (ui->comboBox_Major_Sort_Grass->currentIndex()) {
+            case 0: DisplayTable_MajorLeagueStadiumName();
+                    break;
+            case 1: DisplayTable_MajorLeagueStadiumRealGrass();
+                    break;
+            case 2: DisplayTable_MajorLeagueStadiumArtifGrass();
+                    break;
+        } break;
+
+        case 2: switch (ui->comboBox_Major_Sort_Grass->currentIndex()) {
+            case 0: DisplayTable_MajorLeageTeamName();
+                    break;
+            case 1: DisplayTable_MajorLeagueTeamRealGrass();
+                    break;
+            case 2: DisplayTable_MajorLeagueTeamArtifGrass();
+                    break;
+        } break;
+
+        case 3: switch (ui->comboBox_Major_Sort_Grass->currentIndex()) {
+            case 0: DisplayTable_MajorLeagueDateOpen();
+                    break;
+            case 1: DisplayTable_MajorLeagueDateRealGrass();
+                    break;
+            case 2: DisplayTable_MajorLeagueDateArtifGrass();
+                    break;
+        } break;
+    }
 }

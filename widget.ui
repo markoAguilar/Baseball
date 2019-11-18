@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>790</width>
+    <width>781</width>
     <height>600</height>
    </rect>
   </property>
@@ -16,7 +16,7 @@
   <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>-10</x>
      <y>0</y>
      <width>791</width>
      <height>601</height>
@@ -173,7 +173,7 @@
     <widget class="QTableWidget" name="tableWidget_Major">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>20</x>
        <y>50</y>
        <width>641</width>
        <height>541</height>
@@ -183,7 +183,7 @@
     <widget class="QPushButton" name="pushButton_ReturnToMain1">
      <property name="geometry">
       <rect>
-       <x>660</x>
+       <x>670</x>
        <y>550</y>
        <width>111</width>
        <height>41</height>
@@ -196,7 +196,7 @@
     <widget class="QPushButton" name="pushButton_DisplayMajorLeague">
      <property name="geometry">
       <rect>
-       <x>660</x>
+       <x>670</x>
        <y>80</y>
        <width>111</width>
        <height>41</height>
@@ -209,18 +209,18 @@
     <widget class="QComboBox" name="comboBox_Califonia_StartPoint">
      <property name="geometry">
       <rect>
-       <x>660</x>
+       <x>670</x>
        <y>50</y>
        <width>111</width>
        <height>22</height>
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>11</y>
+       <x>20</x>
+       <y>10</y>
        <width>381</width>
        <height>30</height>
       </rect>
@@ -242,21 +242,22 @@
      </layout>
     </widget>
    </widget>
-   <widget class="QWidget" name="page_National"/>
+   <widget class="QWidget" name="page_National">
+    <widget class="QTableWidget" name="tableWidget_National">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>50</y>
+       <width>641</width>
+       <height>541</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
    <widget class="QWidget" name="page_American"/>
    <widget class="QWidget" name="page_CustomTrip"/>
    <widget class="QWidget" name="page_UpdateInfo"/>
    <widget class="QWidget" name="page_DisplayMapMajor">
-    <widget class="QGraphicsView" name="graphicsView">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>771</width>
-       <height>521</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QPushButton" name="pushButton_ReturnToMajor">
      <property name="geometry">
       <rect>
@@ -268,6 +269,19 @@
      </property>
      <property name="text">
       <string>Return To Previous Menu</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_MajorLeagueMap">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>10</y>
+       <width>741</width>
+       <height>511</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
      </property>
     </widget>
    </widget>

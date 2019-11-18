@@ -41,13 +41,37 @@ private slots:
 
     void on_pushButton_DisplayMajorLeague_clicked();
 
-    void DisplayTable_MajorLeague();
-
     void on_pushButton_ReturnToMajor_clicked();
 
     void on_pushButton_SelectMajor_clicked();
 
+    void DisplayTable_MajorLeague();
+
+    void DisplayTable_MajorLeagueRealGrass();
+
+    void DisplayTable_MajorLeagueArtifGrass();
+
+    void DisplayTable_MajorLeagueStadiumName();
+
+    void DisplayTable_MajorLeagueStadiumRealGrass();
+
+    void DisplayTable_MajorLeagueStadiumArtifGrass();
+
+    void DisplayTable_MajorLeageTeamName();
+
+    void DisplayTable_MajorLeagueTeamRealGrass();
+
+    void DisplayTable_MajorLeagueTeamArtifGrass();
+
+    void DisplayTable_MajorLeagueDateOpen();
+
+    void DisplayTable_MajorLeagueDateRealGrass();
+
+    void DisplayTable_MajorLeagueDateArtifGrass();
+
 private:
+    QString Month[13] = {"January", "February", "March", "April", "May", "June",
+                         "July", "August", "September", "October", "November", "December"};
     stadium_container stadium;
     Ui::Widget *ui;
     QGraphicsScene * scene;
