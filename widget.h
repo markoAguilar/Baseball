@@ -82,4 +82,98 @@ private:
     };
 
 };
+
+/*******************************************************************************
+****************************** Display tables **********************************
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_MajorLeague();
+*   Accessor: This function displays all major league
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_MajorLeagueRealGrass();
+*   Accessor: This function displays all major league with grass surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_MajorLeagueArtifGrass();
+*   Accessor: This function displays all major league with artificial surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_MajorLeagueStadiumName();
+*   Accessor: This function displays all major league stadium name sorted
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_MajorLeagueStadiumRealGrass();
+*   Accessor: This function displays all major league stadium name sorted
+*             with grass surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_MajorLeagueStadiumArtifGrass();
+*   Accessor: This function displays all major league stadium name sorted
+*             with artificial surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_MajorLeageTeamName();
+*   Accessor: This function displays all major league team name sorted
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_MajorLeagueTeamRealGrass();
+*   Accessor: This function displays all major league team name sorted
+*             with grass surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_MajorLeagueTeamArtifGrass();
+*   Accessor: This function displays all major league team name sorted
+*             with artificial surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_MajorLeagueDateOpen();
+*   Accessor: This function displays all major league date open sorted
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_MajorLeagueDateRealGrass();
+*   Accessor: This function displays all major league date open sorted
+*             with grass surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_MajorLeagueDateArtifGrass();
+*   Accessor: This function displays all major league date open sorted
+*             with artificial surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
 #endif // WIDGET_H
