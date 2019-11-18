@@ -206,7 +206,7 @@
       <string>Display Map</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox_Califonia_StartPoint">
+    <widget class="QComboBox" name="comboBox_Cali_StartPoint_Major">
      <property name="geometry">
       <rect>
        <x>670</x>
@@ -253,16 +253,149 @@
       </rect>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButton_ReturnToMain2">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>550</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Return To Main Menu</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox_Cali_StartPoint_National">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>50</y>
+       <width>111</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_DisplayNationalLeague">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>80</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Display Map</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>381</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QComboBox" name="comboBox_National_Sort"/>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox_National_Sort_Grass"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_SelectNational">
+        <property name="text">
+         <string>Select</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
-   <widget class="QWidget" name="page_American"/>
+   <widget class="QWidget" name="page_American">
+    <widget class="QWidget" name="layoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>381</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QComboBox" name="comboBox_American_Sort"/>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox_American_Sort_Grass"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_SelectAmerican">
+        <property name="text">
+         <string>Select</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QPushButton" name="pushButton_ReturnToMain3">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>550</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Return To Main Menu</string>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="tableWidget_American">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>50</y>
+       <width>641</width>
+       <height>541</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_DisplayAmericanLeague">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>80</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Display Map</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox_Cali_StartPoint_American">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>50</y>
+       <width>111</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
    <widget class="QWidget" name="page_CustomTrip"/>
    <widget class="QWidget" name="page_UpdateInfo"/>
    <widget class="QWidget" name="page_DisplayMapMajor">
     <widget class="QPushButton" name="pushButton_ReturnToMajor">
      <property name="geometry">
       <rect>
-       <x>612</x>
-       <y>547</y>
+       <x>610</x>
+       <y>550</y>
        <width>161</width>
        <height>41</height>
       </rect>
@@ -282,6 +415,62 @@
      </property>
      <property name="text">
       <string>TextLabel</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_DisplayMapNational">
+    <widget class="QLabel" name="label_NationalLeagueMap">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>10</y>
+       <width>741</width>
+       <height>511</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_ReturnToNational">
+     <property name="geometry">
+      <rect>
+       <x>610</x>
+       <y>550</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Return To Previous Menu</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_DisplayMapAmerican">
+    <widget class="QLabel" name="label_AmericanLeagueMap">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>10</y>
+       <width>741</width>
+       <height>511</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_ReturnToAmerican">
+     <property name="geometry">
+      <rect>
+       <x>610</x>
+       <y>550</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Return To Previous Menu</string>
      </property>
     </widget>
    </widget>

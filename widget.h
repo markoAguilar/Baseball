@@ -37,13 +37,29 @@ private slots:
 
     void on_pushButton_ReturnToMenu_clicked();
 
+    void on_pushButton_SelectMajor_clicked();
+
     void on_pushButton_ReturnToMain1_clicked();
 
     void on_pushButton_DisplayMajorLeague_clicked();
 
     void on_pushButton_ReturnToMajor_clicked();
 
-    void on_pushButton_SelectMajor_clicked();
+    void on_pushButton_SelectNational_clicked();
+
+    void on_pushButton_ReturnToMain2_clicked();
+
+    void on_pushButton_DisplayNationalLeague_clicked();
+
+    void on_pushButton_ReturnToNational_clicked();
+
+    void on_pushButton_SelectAmerican_clicked();
+
+    void on_pushButton_ReturnToMain3_clicked();
+
+    void on_pushButton_DisplayAmericanLeague_clicked();
+
+    void on_pushButton_ReturnToAmerican_clicked();
 
     void DisplayTable_MajorLeague();
 
@@ -69,6 +85,54 @@ private slots:
 
     void DisplayTable_MajorLeagueDateArtifGrass();
 
+    void DisplayTable_NationalLeague();
+
+    void DisplayTable_NationalLeagueRealGrass();
+
+    void DisplayTable_NationalLeagueArtifGrass();
+
+    void DisplayTable_NationalLeagueStadiumName();
+
+    void DisplayTable_NationalLeagueStadiumRealGrass();
+
+    void DisplayTable_NationalLeagueStadiumArtifGrass();
+
+    void DisplayTable_NationalLeageTeamName();
+
+    void DisplayTable_NationalLeagueTeamRealGrass();
+
+    void DisplayTable_NationalLeagueTeamArtifGrass();
+
+    void DisplayTable_NationalLeagueDateOpen();
+
+    void DisplayTable_NationalLeagueDateRealGrass();
+
+    void DisplayTable_NationalLeagueDateArtifGrass();
+
+    void DisplayTable_AmericanLeague();
+
+    void DisplayTable_AmericanLeagueRealGrass();
+
+    void DisplayTable_AmericanLeagueArtifGrass();
+
+    void DisplayTable_AmericanLeagueStadiumName();
+
+    void DisplayTable_AmericanLeagueStadiumRealGrass();
+
+    void DisplayTable_AmericanLeagueStadiumArtifGrass();
+
+    void DisplayTable_AmericanLeageTeamName();
+
+    void DisplayTable_AmericanLeagueTeamRealGrass();
+
+    void DisplayTable_AmericanLeagueTeamArtifGrass();
+
+    void DisplayTable_AmericanLeagueDateOpen();
+
+    void DisplayTable_AmericanLeagueDateRealGrass();
+
+    void DisplayTable_AmericanLeagueDateArtifGrass();
+
 private:
     QString Month[13] = {"January", "February", "March", "April", "May", "June",
                          "July", "August", "September", "October", "November", "December"};
@@ -86,6 +150,10 @@ private:
 /*******************************************************************************
 ****************************** Display tables **********************************
 *******************************************************************************/
+
+/*******************
+*** Major League ***
+*******************/
 
 /*******************************************************************************
 * void DisplayTable_MajorLeague();
@@ -172,6 +240,194 @@ private:
 /*******************************************************************************
 * void DisplayTable_MajorLeagueDateArtifGrass();
 *   Accessor: This function displays all major league date open sorted
+*             with artificial surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/**********************
+*** National League ***
+**********************/
+
+/*******************************************************************************
+* void DisplayTable_NationalLeague();
+*   Accessor: This function displays all national league
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_NationalLeagueRealGrass();
+*   Accessor: This function displays all national league with grass surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_NationalLeagueArtifGrass();
+*   Accessor: This function displays all national league with artificial surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_NationalLeagueStadiumName();
+*   Accessor: This function displays all national league stadium name sorted
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_NationalLeagueStadiumRealGrass();
+*   Accessor: This function displays all natioanl league stadium name sorted
+*             with grass surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_NationalLeagueStadiumArtifGrass();
+*   Accessor: This function displays all national league stadium name sorted
+*             with artificial surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_NationalLeageTeamName();
+*   Accessor: This function displays all national league team name sorted
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_NationalLeagueTeamRealGrass();
+*   Accessor: This function displays all national league team name sorted
+*             with grass surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_NationalLeagueTeamArtifGrass();
+*   Accessor: This function displays all national league team name sorted
+*             with artificial surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_NationalLeagueDateOpen();
+*   Accessor: This function displays all national league date open sorted
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_NationalLeagueDateRealGrass();
+*   Accessor: This function displays all national league date open sorted
+*             with grass surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_NationalLeagueDateArtifGrass();
+*   Accessor: This function displays all national league date open sorted
+*             with artificial surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/**********************
+*** American League ***
+**********************/
+
+/*******************************************************************************
+* void DisplayTable_AmericanLeague();
+*   Accessor: This function displays all american league
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_AmericanLeagueRealGrass();
+*   Accessor: This function displays all american league with grass surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_AmericanLeagueArtifGrass();
+*   Accessor: This function displays all american league with artificial surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_AmericanLeagueStadiumName();
+*   Accessor: This function displays all american league stadium name sorted
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_AmericanLeagueStadiumRealGrass();
+*   Accessor: This function displays all american league stadium name sorted
+*             with grass surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_AmericanLeagueStadiumArtifGrass();
+*   Accessor: This function displays all american league stadium name sorted
+*             with artificial surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_AmericanLeageTeamName();
+*   Accessor: This function displays all american league team name sorted
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_AmericanLeagueTeamRealGrass();
+*   Accessor: This function displays all american league team name sorted
+*             with grass surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_AmericanLeagueTeamArtifGrass();
+*   Accessor: This function displays all american league team name sorted
+*             with artificial surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_AmericanLeagueDateOpen();
+*   Accessor: This function displays all american league date open sorted
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_AmericanLeagueDateRealGrass();
+*   Accessor: This function displays all american league date open sorted
+*             with grass surface
+*   Parameters: none
+*   Return: none
+*******************************************************************************/
+
+/*******************************************************************************
+* void DisplayTable_AmericanLeagueDateArtifGrass();
+*   Accessor: This function displays all american league date open sorted
 *             with artificial surface
 *   Parameters: none
 *   Return: none
