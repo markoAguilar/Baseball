@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     Display_Table.cpp \
+    login.cpp \
     main.cpp \
     stadium.cpp \
     stadium_container.cpp \
@@ -25,11 +26,13 @@ SOURCES += \
 HEADERS += \
     container.h \
     files.h \
+    login.h \
     stadium.h \
     stadium_container.h \
     widget.h
 
 FORMS += \
+    login.ui \
     widget.ui
 
 # Default rules for deployment.

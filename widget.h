@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QGraphicsScene>
 #include <QGraphicsLineItem>
+#include <login.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -133,6 +134,8 @@ private slots:
 
     void DisplayTable_AmericanLeagueDateArtifGrass();
 
+    void on_pushButton_ReturnToMain4_clicked();
+
 private:
     QString Month[13] = {"January", "February", "March", "April", "May", "June",
                          "July", "August", "September", "October", "November", "December"};
@@ -140,6 +143,7 @@ private:
     Ui::Widget *ui;
     QGraphicsScene * scene;
     QImage * img_Object;
+    login *admin_Login;
 
     enum Column {
         STADIUM_NAME, TEAM_NAME, ADDRESS, BOX_OFFICE,DATE_OPENED,CAPACITY, GRASS

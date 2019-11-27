@@ -7,6 +7,7 @@
 #include <QtCore>
 #include <QtGui>
 #include <QColor>
+#include <QMessageBox>
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -94,6 +95,10 @@ Widget::Widget(QWidget *parent)
     ui->pushButton_DisplayAmericanLeague->setStyleSheet(format);
     ui->pushButton_ReturnToMain3->setStyleSheet(format);
     ui->pushButton_ReturnToAmerican->setStyleSheet(format);
+    ui->pushButton_AddNewTeam->setStyleSheet(format);
+    ui->pushButton_ModifyStadium->setStyleSheet(format);
+    ui->pushButton_SouvenirUpdate->setStyleSheet(format);
+    ui->pushButton_ReturnToMain4->setStyleSheet(format);
 
     font.setPointSize(14);
     ui->pushButton_Menu->setFont(font);
@@ -104,6 +109,12 @@ Widget::Widget(QWidget *parent)
     ui->pushButton_Custom_trip->setFont(font);
     ui->pushButton_Update_Info->setFont(font);
     ui->pushButton_ReturnToMenu->setFont(font);
+
+    font.setPointSize(12);
+    ui->pushButton_AddNewTeam->setFont(font);
+    ui->pushButton_ModifyStadium->setFont(font);
+    ui->pushButton_SouvenirUpdate->setFont(font);
+    ui->pushButton_ReturnToMain4->setFont(font);
 
     ui->tableWidget_Major->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->tableWidget_Major->horizontalHeader()->setFrameStyle(QFrame::Box | QFrame::Plain);
@@ -203,7 +214,34 @@ void Widget::on_pushButton_Custom_trip_clicked()
 
 void Widget::on_pushButton_Update_Info_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(6);
+    int count = 3;
+    bool correct = false;
+
+    while(count != 0 && count != -1) {
+        admin_Login = new login(this);
+        admin_Login->exec();
+        count -= admin_Login->getCount();
+        QString username = admin_Login->getName();
+        QString password = admin_Login->getPass();
+
+        if (username == "admin" && password == "admin") {
+            count = 0;
+            correct = true;
+            admin_Login->close();
+            ui->stackedWidget->setCurrentIndex(6);
+        }
+        else if (count != 0 && count != -1)
+            QMessageBox::warning(this, "Invalid Username or ID", "You have " + QString::number(count) + " attempt left.");
+    }
+
+    if (count == 0 && correct == false) {
+        QMessageBox::information(this, "Invalid Input", "You have exceeded your attempt to login.");
+        ui->stackedWidget->setCurrentIndex(1);
+    }
+
+    else if (count == -1) {
+        ui->stackedWidget->setCurrentIndex(1);
+    }
 }
 
 void Widget::on_pushButton_ReturnToMenu_clicked()
@@ -430,4 +468,9 @@ void Widget::on_pushButton_DisplayAmericanLeague_clicked()
 void Widget::on_pushButton_ReturnToAmerican_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
+}
+
+void Widget::on_pushButton_ReturnToMain4_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
 }
