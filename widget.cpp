@@ -8,6 +8,7 @@
 #include <QtGui>
 #include <QColor>
 #include <QMessageBox>
+#include <QFormLayout>
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -73,6 +74,16 @@ Widget::Widget(QWidget *parent)
     ui->comboBox_American_Sort_Grass->addItem("Real Grass");
     ui->comboBox_American_Sort_Grass->addItem("Artificial Grass");
 
+    ui->comboBox_Major_Sort_Admin->addItem("Sort By");
+    ui->comboBox_Major_Sort_Admin->addItem("Stadium Name");
+    ui->comboBox_Major_Sort_Admin->addItem("Team Name");
+    ui->comboBox_Major_Sort_Admin->addItem("Date Open");
+
+    ui->comboBox_Major_Sort_Grass_Admin->addItem("Grass Type");
+    ui->comboBox_Major_Sort_Grass_Admin->addItem("Real Grass");
+    ui->comboBox_Major_Sort_Grass_Admin->addItem("Artificial Grass");
+
+
     QString format = "QPushButton {background-color: #A3C1DA; color: black;}";
 
     ui->pushButton_Menu->setStyleSheet(format);
@@ -110,11 +121,16 @@ Widget::Widget(QWidget *parent)
     ui->pushButton_Update_Info->setFont(font);
     ui->pushButton_ReturnToMenu->setFont(font);
 
-    font.setPointSize(12);
+    font.setPointSize(10);
     ui->pushButton_AddNewTeam->setFont(font);
     ui->pushButton_ModifyStadium->setFont(font);
     ui->pushButton_SouvenirUpdate->setFont(font);
     ui->pushButton_ReturnToMain4->setFont(font);
+
+    font.setPointSize(16);
+    ui->textBrowser->setFont(font);
+
+    ui->textBrowser->setAlignment(Qt::AlignCenter);
 
     ui->tableWidget_Major->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->tableWidget_Major->horizontalHeader()->setFrameStyle(QFrame::Box | QFrame::Plain);
@@ -137,6 +153,14 @@ Widget::Widget(QWidget *parent)
     ui->tableWidget_American->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableWidget_American->setColumnCount(7);
     ui->tableWidget_American->setHorizontalHeaderLabels(title1);
+
+    ui->tableWidget_Major_Admin->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->tableWidget_Major_Admin->horizontalHeader()->setFrameStyle(QFrame::Box | QFrame::Plain);
+    ui->tableWidget_Major_Admin->setLineWidth(2);
+    ui->tableWidget_Major_Admin->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableWidget_Major_Admin->setColumnCount(7);
+    ui->tableWidget_Major_Admin->setHorizontalHeaderLabels(title1);
+
 
     fullpath = QApplication::applicationDirPath() + "/data.txt";
     importStadium(fullpath, stadium);
@@ -217,22 +241,21 @@ void Widget::on_pushButton_Update_Info_clicked()
     int count = 3;
     bool correct = false;
 
-    while(count != 0 && count != -1) {
+    while(count != 0 && count != -1 && count > -2) {
         admin_Login = new login(this);
         admin_Login->exec();
         count -= admin_Login->getCount();
         QString username = admin_Login->getName();
         QString password = admin_Login->getPass();
-
-        if (username == "admin" && password == "admin") {
+        if (username == "admin" && password == "admin" && count > -2) {
             count = 0;
             correct = true;
             admin_Login->close();
             ui->stackedWidget->setCurrentIndex(6);
         }
-        else if (count != 0 && count != -1)
+        else if (count != 0 && count != -1 && count > -2)
             QMessageBox::warning(this, "Invalid Username or ID", "You have " + QString::number(count) + " attempt left.");
-    }
+        }
 
     if (count == 0 && correct == false) {
         QMessageBox::information(this, "Invalid Input", "You have exceeded your attempt to login.");
@@ -470,7 +493,203 @@ void Widget::on_pushButton_ReturnToAmerican_clicked()
     ui->stackedWidget->setCurrentIndex(4);
 }
 
+void Widget::on_pushButton_AddNewTeam_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(10);
+    DisplayTable_MajorLeague_Admin();
+}
+
+void Widget::on_pushButton_ModifyStadium_clicked()
+{
+
+}
+
+void Widget::on_pushButton_SouvenirUpdate_clicked()
+{
+
+}
+
 void Widget::on_pushButton_ReturnToMain4_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
+}
+
+void Widget::on_pushButton_SelectMajor_Admin_clicked()
+{
+    switch (ui->comboBox_Major_Sort_Admin->currentIndex()) {
+        case 0: switch (ui->comboBox_Major_Sort_Grass_Admin->currentIndex()) {
+            case 0: DisplayTable_MajorLeague_Admin();
+                break;
+            case 1: DisplayTable_MajorLeagueRealGrass_Admin();
+                break;
+            case 2: DisplayTable_MajorLeagueArtifGrass_Admin();
+                break;
+        } break;
+
+        case 1: switch (ui->comboBox_Major_Sort_Grass_Admin->currentIndex()) {
+            case 0: DisplayTable_MajorLeagueStadiumName_Admin();
+                    break;
+            case 1: DisplayTable_MajorLeagueStadiumRealGrass_Admin();
+                    break;
+            case 2: DisplayTable_MajorLeagueStadiumArtifGrass_Admin();
+                    break;
+        } break;
+
+        case 2: switch (ui->comboBox_Major_Sort_Grass_Admin->currentIndex()) {
+            case 0: DisplayTable_MajorLeageTeamName_Admin();
+                    break;
+            case 1: DisplayTable_MajorLeagueTeamRealGrass_Admin();
+                    break;
+            case 2: DisplayTable_MajorLeagueTeamArtifGrass_Admin();
+                    break;
+        } break;
+
+        case 3: switch (ui->comboBox_Major_Sort_Grass_Admin->currentIndex()) {
+            case 0: DisplayTable_MajorLeagueDateOpen_Admin();
+                    break;
+            case 1: DisplayTable_MajorLeagueDateRealGrass_Admin();
+                    break;
+            case 2: DisplayTable_MajorLeagueDateArtifGrass_Admin();
+                    break;
+        } break;
+    }
+}
+
+void Widget::on_pushButton_AddTeam_clicked()
+{
+    QString fullpath = QApplication::applicationDirPath() + "/data.txt";
+    int currentCount, count;
+    string stadiumLeague, stadiumName, teamName, address, city_state_zip, phone, date, capacity, surface;
+    bool check, empty;
+
+    check = false;
+    empty = false;
+
+    while (check != true) {
+
+        add_NewTeam = new add_Team(this);
+        add_NewTeam->exec();
+
+        stadiumLeague = add_NewTeam->getStadiumLeague().toStdString();
+        stadiumName = add_NewTeam->getStadiumName().toStdString();
+        teamName = add_NewTeam->getTeamName().toStdString();
+        address = add_NewTeam->getAddress().toStdString();
+        city_state_zip = (add_NewTeam->getCity().toStdString() + ", "
+                          + add_NewTeam->getState().toStdString() + " "
+                          + add_NewTeam->getZip().toStdString());
+        phone = add_NewTeam->getPhoneNumber().toStdString();
+        date = add_NewTeam->getDate().toStdString();
+        capacity = add_NewTeam->getCapacity().toStdString();
+        surface = add_NewTeam->getSurface().toStdString();
+
+        if (stadiumLeague != "" && stadiumName != "" && teamName != ""
+                && address != "" && city_state_zip != "" && phone != ""
+                && date != "" && capacity != "" && surface != "") {
+
+            stadium.addStadium(stadiumLeague, stadiumName, teamName, address, city_state_zip, phone, date, capacity, surface, stadium);
+
+            currentCount = stadium.getSize() - 1;
+
+            if (QString::fromStdString(stadium[currentCount].get_grass_type()) == "Y") {
+                count = ui->tableWidget_Major->rowCount();
+                ui->tableWidget_Major->insertRow(ui->tableWidget_Major->rowCount());
+
+                QTableWidgetItem * stadium_Name = new QTableWidgetItem(QString::fromStdString(stadium[currentCount].get_stadium_name()));
+                QTableWidgetItem * team_Name = new QTableWidgetItem(QString::fromStdString(stadium[currentCount].get_team_name()));
+                QTableWidgetItem * address = new QTableWidgetItem(QString::fromStdString(stadium[currentCount].get_street_address()) + "\n" +
+                                                                 QString::fromStdString(stadium[currentCount].get_city_state_zip()));
+                QTableWidgetItem * box_Office = new QTableWidgetItem(QString::fromStdString(stadium[currentCount].get_box_office()));
+                QTableWidgetItem * date_Opened = new QTableWidgetItem(QString::fromStdString(stadium[currentCount].get_date_opened()));
+                QTableWidgetItem * capacity = new QTableWidgetItem(QString::fromStdString(stadium[currentCount].get_seating_capacity()));
+                QTableWidgetItem * grass_Type = new QTableWidgetItem("Real");
+
+
+                stadium_Name->setTextAlignment(Qt::AlignCenter);
+                team_Name->setTextAlignment(Qt::AlignCenter);
+                address->setTextAlignment(Qt::AlignCenter);
+                box_Office->setTextAlignment(Qt::AlignCenter);
+                date_Opened->setTextAlignment(Qt::AlignCenter);
+                capacity->setTextAlignment(Qt::AlignCenter);
+                grass_Type->setTextAlignment(Qt::AlignCenter);
+
+                ui->tableWidget_Major->setItem(count, STADIUM_NAME, stadium_Name);
+                ui->tableWidget_Major->setItem(count, TEAM_NAME, team_Name);
+                ui->tableWidget_Major->setItem(count, ADDRESS, address);
+                ui->tableWidget_Major->setItem(count, BOX_OFFICE, box_Office);
+                ui->tableWidget_Major->setItem(count, DATE_OPENED, date_Opened);
+                ui->tableWidget_Major->setItem(count, CAPACITY, capacity);
+                ui->tableWidget_Major->setItem(count, GRASS, grass_Type);
+                ui->tableWidget_Major->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+
+                check = true;
+            }
+            else {
+                count = ui->tableWidget_Major->rowCount();
+                ui->tableWidget_Major->insertRow(ui->tableWidget_Major->rowCount());
+
+                QTableWidgetItem * stadium_Name = new QTableWidgetItem(QString::fromStdString(stadium[currentCount].get_stadium_name()));
+                QTableWidgetItem * team_Name = new QTableWidgetItem(QString::fromStdString(stadium[currentCount].get_team_name()));
+                QTableWidgetItem * address = new QTableWidgetItem(QString::fromStdString(stadium[currentCount].get_street_address()) + "\n" +
+                                                                 QString::fromStdString(stadium[currentCount].get_city_state_zip()));
+                QTableWidgetItem * box_Office = new QTableWidgetItem(QString::fromStdString(stadium[currentCount].get_box_office()));
+                QTableWidgetItem * date_Opened = new QTableWidgetItem(QString::fromStdString(stadium[currentCount].get_date_opened()));
+                QTableWidgetItem * capacity = new QTableWidgetItem(QString::fromStdString(stadium[currentCount].get_seating_capacity()));
+                QTableWidgetItem * grass_Type = new QTableWidgetItem("Artificial");
+
+
+                stadium_Name->setTextAlignment(Qt::AlignCenter);
+                team_Name->setTextAlignment(Qt::AlignCenter);
+                address->setTextAlignment(Qt::AlignCenter);
+                box_Office->setTextAlignment(Qt::AlignCenter);
+                date_Opened->setTextAlignment(Qt::AlignCenter);
+                capacity->setTextAlignment(Qt::AlignCenter);
+                grass_Type->setTextAlignment(Qt::AlignCenter);
+
+                ui->tableWidget_Major->setItem(count, STADIUM_NAME, stadium_Name);
+                ui->tableWidget_Major->setItem(count, TEAM_NAME, team_Name);
+                ui->tableWidget_Major->setItem(count, ADDRESS, address);
+                ui->tableWidget_Major->setItem(count, BOX_OFFICE, box_Office);
+                ui->tableWidget_Major->setItem(count, DATE_OPENED, date_Opened);
+                ui->tableWidget_Major->setItem(count, CAPACITY, capacity);
+                ui->tableWidget_Major->setItem(count, GRASS, grass_Type);
+                ui->tableWidget_Major->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+
+                check = true;
+
+            }
+        }
+        else if (checkInfo(add_NewTeam->getStadiumLeague(), add_NewTeam->getStadiumName(), add_NewTeam->getTeamName(),
+                       add_NewTeam->getAddress(), add_NewTeam->getCity(), add_NewTeam->getState(), add_NewTeam->getZip(),
+                       add_NewTeam->getPhoneNumber(), add_NewTeam->getCapacity(), add_NewTeam->getSurface()) == true) {
+            check = true;
+            empty = true;
+        }
+        else {
+            QMessageBox::warning(this, "Invalid Input", "The some information is invalid or left blank.");
+            stadiumLeague.clear();
+            stadiumName.clear();
+            teamName.clear();
+            address.clear();
+            city_state_zip.clear();
+            phone.clear();
+            date.clear();
+            capacity.clear();
+            surface.clear();
+        }
+    }
+
+    if (check == true && empty == false) {
+        saveStadium(fullpath, stadium);
+        DisplayTable_MajorLeague_Admin();
+    }
+}
+
+void Widget::on_pushButton_DisplayMajorLeague_Admin_clicked()
+{
+
+}
+
+void Widget::on_pushButton_ReturnToAdminSelection_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(6);
 }

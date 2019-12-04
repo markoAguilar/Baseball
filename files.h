@@ -11,6 +11,7 @@
 using namespace std;
 
 void importStadium(QString fileName, stadium_container& stadium);
+void saveStadium (QString fileName, stadium_container& stadium);
 
 void importStadium(QString fileName, stadium_container& stadium) {
     QString temp;
@@ -65,6 +66,27 @@ void importStadium(QString fileName, stadium_container& stadium) {
             stadium.add(toAdd);
             count = 0;
         }
+    }
+    inFile.close();
+}
+
+void saveStadium (QString fileName, stadium_container& stadium) {
+    QFile inFile(fileName);
+    QTextStream outstream(&inFile);
+
+    inFile.open(QIODevice::WriteOnly | QIODevice::Text);
+
+    for(int i = 0; i < stadium.getSize(); i++)
+    {
+        outstream << QString::fromStdString(stadium[i].get_stadium_type()) << endl;
+        outstream << QString::fromStdString(stadium[i].get_stadium_name()) << endl;
+        outstream << QString::fromStdString(stadium[i].get_team_name()) << endl;
+        outstream << QString::fromStdString(stadium[i].get_street_address()) << endl;
+        outstream << QString::fromStdString(stadium[i].get_city_state_zip()) << endl;
+        outstream << QString::fromStdString(stadium[i].get_box_office()) << endl;
+        outstream << QString::fromStdString(stadium[i].get_date_opened()) << endl;
+        outstream << QString::fromStdString(stadium[i].get_seating_capacity()) << endl;
+        outstream << QString::fromStdString(stadium[i].get_grass_type()) << endl;
     }
     inFile.close();
 }

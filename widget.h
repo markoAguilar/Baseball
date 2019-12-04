@@ -5,6 +5,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsLineItem>
 #include <login.h>
+#include <add_team.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -61,6 +62,22 @@ private slots:
     void on_pushButton_DisplayAmericanLeague_clicked();
 
     void on_pushButton_ReturnToAmerican_clicked();
+
+    void on_pushButton_AddNewTeam_clicked();
+
+    void on_pushButton_ModifyStadium_clicked();
+
+    void on_pushButton_SouvenirUpdate_clicked();
+
+    void on_pushButton_ReturnToMain4_clicked();
+
+    void on_pushButton_SelectMajor_Admin_clicked();
+
+    void on_pushButton_DisplayMajorLeague_Admin_clicked();
+
+    void on_pushButton_ReturnToAdminSelection_clicked();
+
+    void on_pushButton_AddTeam_clicked();
 
     void DisplayTable_MajorLeague();
 
@@ -134,7 +151,32 @@ private slots:
 
     void DisplayTable_AmericanLeagueDateArtifGrass();
 
-    void on_pushButton_ReturnToMain4_clicked();
+    void DisplayTable_MajorLeague_Admin();
+
+    void DisplayTable_MajorLeagueRealGrass_Admin();
+
+    void DisplayTable_MajorLeagueArtifGrass_Admin();
+
+    void DisplayTable_MajorLeagueStadiumName_Admin();
+
+    void DisplayTable_MajorLeagueStadiumRealGrass_Admin();
+
+    void DisplayTable_MajorLeagueStadiumArtifGrass_Admin();
+
+    void DisplayTable_MajorLeageTeamName_Admin();
+
+    void DisplayTable_MajorLeagueTeamRealGrass_Admin();
+
+    void DisplayTable_MajorLeagueTeamArtifGrass_Admin();
+
+    void DisplayTable_MajorLeagueDateOpen_Admin();
+
+    void DisplayTable_MajorLeagueDateRealGrass_Admin();
+
+    void DisplayTable_MajorLeagueDateArtifGrass_Admin();
+
+    bool checkInfo(QString, QString, QString, QString, QString,
+               QString, QString, QString, QString, QString);
 
 private:
     QString Month[13] = {"January", "February", "March", "April", "May", "June",
@@ -144,6 +186,7 @@ private:
     QGraphicsScene * scene;
     QImage * img_Object;
     login *admin_Login;
+    add_Team *add_NewTeam;
 
     enum Column {
         STADIUM_NAME, TEAM_NAME, ADDRESS, BOX_OFFICE,DATE_OPENED,CAPACITY, GRASS

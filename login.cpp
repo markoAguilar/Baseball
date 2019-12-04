@@ -9,7 +9,7 @@ login::login(QWidget *parent) :
     setWindowTitle("Login Panel");
 
     QFont font = ui->label_Title->font();
-    font.setPointSize(17);
+    font.setPointSize(14);
     font.setBold(true);
 
     ui->label_Title->setFont(font);
@@ -29,11 +29,10 @@ void login::on_buttonBox_accepted()
     close();
 }
 
-void login::on_buttonBox_rejected()
-{
+void login::on_buttonBox_rejected() {
     ui->lineEdit_Username->clear();
     ui->lineEdit_Password->clear();
-    count = 4;
+    count += 5;
     close();
 }
 

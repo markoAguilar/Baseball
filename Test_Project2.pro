@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     Display_Table.cpp \
+    add_team.cpp \
     login.cpp \
     main.cpp \
     stadium.cpp \
@@ -24,6 +25,7 @@ SOURCES += \
     widget.cpp
 
 HEADERS += \
+    add_team.h \
     container.h \
     files.h \
     login.h \
@@ -32,6 +34,7 @@ HEADERS += \
     widget.h
 
 FORMS += \
+    add_team.ui \
     login.ui \
     widget.ui
 

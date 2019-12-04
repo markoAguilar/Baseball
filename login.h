@@ -2,6 +2,7 @@
 #define LOGIN_H
 
 #include <QDialog>
+#include <QAbstractButton>
 
 namespace Ui {
 class login;
@@ -17,7 +18,6 @@ public:
     QString getName();
     QString getPass();
     int getCount();
-    void reject();
 
 private slots:
     void on_buttonBox_accepted();
@@ -27,6 +27,7 @@ private slots:
 private:
     Ui::login *ui;
     int count = 0;
+
 };
 
 #endif // LOGIN_H
