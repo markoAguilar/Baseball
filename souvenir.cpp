@@ -5,6 +5,7 @@
 using namespace std;
 //read item from file
 void souvenir::read(){
+	a.clear();
 	ifstream infile;
 	infile.open("Baseball_Souvenir.txt");
 	if(!infile)
