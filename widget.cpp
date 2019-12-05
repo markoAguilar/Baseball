@@ -806,7 +806,7 @@ void Widget::on_pushButton_AddTeam_clicked()
         }
         else if (checkInfo(add_NewTeam->getStadiumLeague(), add_NewTeam->getStadiumName(), add_NewTeam->getTeamName(),
                        add_NewTeam->getAddress(), add_NewTeam->getCity(), add_NewTeam->getState(), add_NewTeam->getZip(),
-                       add_NewTeam->getPhoneNumber(), add_NewTeam->getCapacity(), add_NewTeam->getSurface()) == true) {
+                       add_NewTeam->getPhoneNumber(), add_NewTeam->getCapacity()) == true) {
             check = true;
             empty = true;
         }

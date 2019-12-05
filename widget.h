@@ -201,7 +201,7 @@ private slots:
     void DisplayTable_MajorLeague_Admin_2();
 
     bool checkInfo(QString, QString, QString, QString, QString,
-               QString, QString, QString, QString, QString);
+               QString, QString, QString, QString);
 
 private:
     QString Month[13] = {"January", "February", "March", "April", "May", "June",

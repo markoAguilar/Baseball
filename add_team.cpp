@@ -116,10 +116,12 @@ QString add_Team::getPhoneNumber() {
             phone = "+" + number.left(1) + " " + number.mid(1, 3) + "-" + number.mid(4, 3) + "-" + number.right(4);
             return phone;
         }
-        else {
+        else if (number.size() > 0 && number.size() <= 10) {
             phone = "(" + number.left(3) + ") " + number.mid(3, 3) + "-" + number.right(4);
             return phone;
         }
+        else
+            return "";
     }
     else
         return "";

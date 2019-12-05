@@ -3772,10 +3772,9 @@ void Widget::DisplayTable_Souvenir() {
 }
 
 bool Widget::checkInfo(QString stadiumLeague, QString stadiumName, QString teamName, QString address, QString city,
-                        QString state, QString zip, QString phone, QString capacity, QString surface) {
+                        QString state, QString zip, QString phone, QString capacity) {
     if (stadiumLeague == "" && stadiumName == "" && teamName == "" && address == ""
-        && city == "" && state == "" && zip == "" && phone == "" && capacity == ""
-        && surface == "")
+        && city == "" && state == "" && zip == "" && phone == "" && capacity == "")
         return true;
 
     else
