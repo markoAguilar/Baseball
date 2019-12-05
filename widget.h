@@ -94,6 +94,12 @@ private slots:
 
     void on_pushButton_ReturnToAdminMenu2_clicked();
 
+    void on_pushButton_Add_Purchase_clicked();
+
+    void on_pushButton_Add_Purchase_2_clicked();
+
+    void on_pushButton_Add_Purchase_3_clicked();
+
     void DisplayTable_MajorLeague();
 
     void DisplayTable_MajorLeagueRealGrass();
@@ -208,6 +214,7 @@ private:
     login *admin_Login;
     add_Team *add_NewTeam;
     modifyInfo *update;
+    double total_Purchase = 0.00;
 
     enum Column {
         STADIUM_NAME, TEAM_NAME, ADDRESS, BOX_OFFICE,DATE_OPENED,CAPACITY, GRASS

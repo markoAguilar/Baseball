@@ -51,6 +51,33 @@ Widget::Widget(QWidget *parent)
     ui->label_8->setFont(font);
     ui->label_8->setStyleSheet("QLabel {background-color: rgba(0,0,0,0%); color: white;}");
 
+    ui->label_9->setFont(font);
+    ui->label_9->setStyleSheet("QLabel {background-color: rgba(0,0,0,0%); color: black;}");
+
+    ui->label_10->setFont(font);
+    ui->label_10->setStyleSheet("QLabel {background-color: rgba(0,0,0,0%); color: black;}");
+
+    ui->label_11->setFont(font);
+    ui->label_11->setStyleSheet("QLabel {background-color: rgba(0,0,0,0%); color: black;}");
+
+    ui->label_12->setFont(font);
+    ui->label_12->setStyleSheet("QLabel {background-color: rgba(0,0,0,0%); color: black;}");
+
+    ui->label_13->setFont(font);
+    ui->label_13->setStyleSheet("QLabel {background-color: rgba(0,0,0,0%); color: black;}");
+
+    ui->label_14->setFont(font);
+    ui->label_14->setStyleSheet("QLabel {background-color: rgba(0,0,0,0%); color: black;}");
+
+    ui->label_15->setFont(font);
+    ui->label_15->setStyleSheet("QLabel {background-color: rgba(0,0,0,0%); color: black;}");
+
+    ui->label_16->setFont(font);
+    ui->label_16->setStyleSheet("QLabel {background-color: rgba(0,0,0,0%); color: black;}");
+
+    ui->label_17->setFont(font);
+    ui->label_17->setStyleSheet("QLabel {background-color: rgba(0,0,0,0%); color: black;}");
+
     QString background_path = QApplication::applicationDirPath() + "/Baseball_Background.png";
     QPixmap background(background_path);
     background = background.scaled(this->size(), Qt::IgnoreAspectRatio);
@@ -128,6 +155,21 @@ Widget::Widget(QWidget *parent)
     ui->pushButton_ModifyStadium->setStyleSheet(format);
     ui->pushButton_SouvenirUpdate->setStyleSheet(format);
     ui->pushButton_ReturnToMain4->setStyleSheet(format);
+    ui->pushButton_Add_Purchase->setStyleSheet(format);
+    ui->pushButton_Add_Purchase_2->setStyleSheet(format);
+    ui->pushButton_Add_Purchase_3->setStyleSheet(format);
+    ui->pushButton_SelectMajor_Admin->setStyleSheet(format);
+    ui->pushButton_AddTeam->setStyleSheet(format);
+    ui->pushButton_DisplayMajorLeague_Admin->setStyleSheet(format);
+    ui->pushButton_ReturnToAdminSelection->setStyleSheet(format);
+    ui->pushButton_Search->setStyleSheet(format);
+    ui->pushButton_ModifyInformation->setStyleSheet(format);
+    ui->pushButton_ReturnToAdminMenu->setStyleSheet(format);
+    ui->pushButton_AddSouvenir->setStyleSheet(format);
+    ui->pushButton_DeleteSouvenir->setStyleSheet(format);
+    ui->pushButton_PriceChange->setStyleSheet(format);
+    ui->pushButton_ReturnToAdminMenu2->setStyleSheet(format);
+
 
     font.setPointSize(14);
     ui->pushButton_Menu->setFont(font);
@@ -201,10 +243,20 @@ Widget::Widget(QWidget *parent)
     importStadium(fullpath, stadium);
 
     ui->comboBox_CurrentSouvenir->addItem("Souvenir Name");
+    ui->comboBox_PurchaseSouvenir->addItem("Souvenir Name");
+    ui->comboBox_PurchaseSouvenir_2->addItem("Souvenir Name");
+    ui->comboBox_PurchaseSouvenir_3->addItem("Souvenir Name");
 
     for (int i = 0; i < souvenir.getSize(); i++) {
         ui->comboBox_CurrentSouvenir->addItem(QString::fromStdString(souvenir[i].get_souvenir_name()));
+        ui->comboBox_PurchaseSouvenir->addItem(QString::fromStdString(souvenir[i].get_souvenir_name()));
+        ui->comboBox_PurchaseSouvenir_2->addItem(QString::fromStdString(souvenir[i].get_souvenir_name()));
+        ui->comboBox_PurchaseSouvenir_3->addItem(QString::fromStdString(souvenir[i].get_souvenir_name()));
     }
+
+    ui->lineEdit_QuantityPurchase->setAlignment(Qt::AlignRight);
+    ui->lineEdit_QuantityPurchase_2->setAlignment(Qt::AlignRight);
+    ui->lineEdit_QuantityPurchase_3->setAlignment(Qt::AlignRight);
 
 }
 
@@ -354,8 +406,25 @@ void Widget::on_pushButton_SelectMajor_clicked()
     }
 }
 
+void Widget::on_pushButton_Add_Purchase_clicked()
+{
+    QString souvenirName = ui->comboBox_PurchaseSouvenir->currentText();
+    string quantityPurchase = ui->lineEdit_QuantityPurchase->text().toStdString();
+    for (int i = 0; i < souvenir.getSize(); i++) {
+        if (souvenirName.toStdString() == souvenir[i].get_souvenir_name() && ui->lineEdit_QuantityPurchase->text() != ""
+                && ui->lineEdit_QuantityPurchase != 0) {
+            total_Purchase += (stod(souvenir[i].get_souvenir_price()) * stod(quantityPurchase));
+            ui->textBrowser_Total_Purchase->setText("$" + QString::number(total_Purchase, 'f', 2));
+            ui->textBrowser_Total_Purchase->setAlignment(Qt::AlignRight);
+        }
+    }
+}
+
 void Widget::on_pushButton_ReturnToMain1_clicked()
 {
+    total_Purchase = 0.00;
+    ui->lineEdit_QuantityPurchase->clear();
+    ui->textBrowser_Total_Purchase->clear();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
@@ -429,8 +498,25 @@ void Widget::on_pushButton_SelectNational_clicked()
     }
 }
 
+void Widget::on_pushButton_Add_Purchase_2_clicked()
+{
+    QString souvenirName = ui->comboBox_PurchaseSouvenir_2->currentText();
+    string quantityPurchase = ui->lineEdit_QuantityPurchase_2->text().toStdString();
+    for (int i = 0; i < souvenir.getSize(); i++) {
+        if (souvenirName.toStdString() == souvenir[i].get_souvenir_name() && ui->lineEdit_QuantityPurchase_2->text() != ""
+                && ui->lineEdit_QuantityPurchase_2 != 0) {
+            total_Purchase += (stod(souvenir[i].get_souvenir_price()) * stod(quantityPurchase));
+            ui->textBrowser_Total_Purchase_2->setText("$" + QString::number(total_Purchase, 'f', 2));
+            ui->textBrowser_Total_Purchase_2->setAlignment(Qt::AlignRight);
+        }
+    }
+}
+
 void Widget::on_pushButton_ReturnToMain2_clicked()
 {
+    total_Purchase = 0.00;
+    ui->lineEdit_QuantityPurchase_2->clear();
+    ui->textBrowser_Total_Purchase_2->clear();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
@@ -502,8 +588,25 @@ void Widget::on_pushButton_SelectAmerican_clicked()
     }
 }
 
+void Widget::on_pushButton_Add_Purchase_3_clicked()
+{
+    QString souvenirName = ui->comboBox_PurchaseSouvenir_3->currentText();
+    string quantityPurchase = ui->lineEdit_QuantityPurchase_3->text().toStdString();
+    for (int i = 0; i < souvenir.getSize(); i++) {
+        if (souvenirName.toStdString() == souvenir[i].get_souvenir_name() && ui->lineEdit_QuantityPurchase_3->text() != ""
+                && ui->lineEdit_QuantityPurchase_3 != 0) {
+            total_Purchase += (stod(souvenir[i].get_souvenir_price()) * stod(quantityPurchase));
+            ui->textBrowser_Total_Purchase_3->setText("$" + QString::number(total_Purchase, 'f', 2));
+            ui->textBrowser_Total_Purchase_3->setAlignment(Qt::AlignRight);
+        }
+    }
+}
+
 void Widget::on_pushButton_ReturnToMain3_clicked()
 {
+    total_Purchase = 0.00;
+    ui->lineEdit_QuantityPurchase_3->clear();
+    ui->textBrowser_Total_Purchase_3->clear();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
