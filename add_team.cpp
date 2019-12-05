@@ -70,9 +70,11 @@ QString add_Team::getTeamName() {
 }
 
 QString add_Team::getAddress() {
+    QString address;
     QRegExp re("\\d*");
     if (!re.exactMatch(ui->lineEdit_StadiumAddress->text())) {
-        return ui->lineEdit_StadiumAddress->text();
+        address = ui->lineEdit_StadiumAddress->text() + ",";
+        return address;
     }
     else
         return "";
@@ -106,9 +108,18 @@ QString add_Team::getZip() {
 }
 
 QString add_Team::getPhoneNumber() {
+    QString phone, number;
     QRegExp re("\\d*");
     if (re.exactMatch(ui->lineEdit_PhoneNumber->text())) {
-        return ui->lineEdit_PhoneNumber->text();
+        number = ui->lineEdit_PhoneNumber->text();
+        if (number.size() > 10) {
+            phone = "+" + number.left(1) + " " + number.mid(1, 3) + "-" + number.mid(4, 3) + "-" + number.right(4);
+            return phone;
+        }
+        else {
+            phone = "(" + number.left(3) + ") " + number.mid(3, 3) + "-" + number.right(4);
+            return phone;
+        }
     }
     else
         return "";

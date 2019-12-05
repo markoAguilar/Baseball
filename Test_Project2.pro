@@ -20,6 +20,10 @@ SOURCES += \
     add_team.cpp \
     login.cpp \
     main.cpp \
+    modifyinfo.cpp \
+    souvenir.cpp \
+    souvenir.cpp \
+    souvenir.cpp \
     stadium.cpp \
     stadium_container.cpp \
     widget.cpp
@@ -29,6 +33,14 @@ HEADERS += \
     container.h \
     files.h \
     login.h \
+    modifyinfo.h \
+    souvenir.h \
+    souvenir.h \
+    souvenir.h \
+    souvenir.h \
+    souvenir.h \
+    souvenir.h \
+    souvenir.h \
     stadium.h \
     stadium_container.h \
     widget.h
@@ -36,6 +48,7 @@ HEADERS += \
 FORMS += \
     add_team.ui \
     login.ui \
+    modifyinfo.ui \
     widget.ui
 
 # Default rules for deployment.

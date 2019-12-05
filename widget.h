@@ -6,6 +6,7 @@
 #include <QGraphicsLineItem>
 #include <login.h>
 #include <add_team.h>
+#include <modifyinfo.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -78,6 +79,12 @@ private slots:
     void on_pushButton_ReturnToAdminSelection_clicked();
 
     void on_pushButton_AddTeam_clicked();
+
+    void on_pushButton_Search_clicked();
+
+    void on_pushButton_ModifyInformation_clicked();
+
+    void on_pushButton_ReturnToAdminMenu_clicked();
 
     void DisplayTable_MajorLeague();
 
@@ -175,6 +182,8 @@ private slots:
 
     void DisplayTable_MajorLeagueDateArtifGrass_Admin();
 
+    void DisplayTable_MajorLeague_Admin_2();
+
     bool checkInfo(QString, QString, QString, QString, QString,
                QString, QString, QString, QString, QString);
 
@@ -187,6 +196,7 @@ private:
     QImage * img_Object;
     login *admin_Login;
     add_Team *add_NewTeam;
+    modifyInfo *update;
 
     enum Column {
         STADIUM_NAME, TEAM_NAME, ADDRESS, BOX_OFFICE,DATE_OPENED,CAPACITY, GRASS

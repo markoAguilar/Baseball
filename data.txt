@@ -12,7 +12,7 @@ Comerica Park
 Detroit Tigers
 2100 Woodward Ave, 
 Detroit, MI 48201
-(313) 962-4000 
+(313) 962-4000
 April 11, 2000
 41,681
 Y
@@ -21,7 +21,7 @@ Fenway Park
 Boston Red Sox
 4 Yawkey Way, 
 Boston, MA 02215
-(877) 733-7699 
+(877) 733-7699
 April 20, 1912
 37,499 (night) & 37,071 (day)
 Y
@@ -30,7 +30,7 @@ Globe Life Park in Arlington
 Texas Rangers
 1000 Ballpark Way,
 Arlington, TX 76011
-(817) 273-5222 
+(817) 273-5222
 April 1, 1994
 48,114
 Y
@@ -73,7 +73,7 @@ Y
 A
 Progressive Field
 Cleveland Indians
-2401 Ontario Street
+2401 Ontario Street,
 Cleveland, OH 44115
 (216) 420-4487
 April 2, 1994
@@ -82,8 +82,8 @@ Y
 A
 Rogers Centre
 Toronto Blue Jays
-1 Blue Jays Way
-Toronto, Ontario, Canada M5V1J3
+1 Blue Jays Way,
+Toronto, Ontario, Canada  M5V1J3
 +1 416-341-1000
 June 3, 1989
 49,282
@@ -267,4 +267,4 @@ Chicago, IL 60613
 (773) 404-2827
 April 23, 1914
 42,374
-Y
+YS
