@@ -49,8 +49,14 @@ private slots:
 
     void on_radioButton_3_clicked();
 
+    void on_pushButton_custom_add_destination_clicked();
+
+    void on_pushButton_custom_display_trip_clicked();
+
 private:
     Ui::MainWindow *ui;
+
+    vector<string> custom_destinations;
 
     Coordinates cords_arr[MLB_S] {Coordinates("PETCO Park", 94, 349),
     Coordinates("Dodger Stadium - Angel Stadium", 75, 322),
