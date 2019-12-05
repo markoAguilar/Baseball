@@ -3746,6 +3746,31 @@ void Widget::DisplayTable_MajorLeague_Admin_2() {
     }
 }
 
+void Widget::DisplayTable_Souvenir() {
+    int count;
+
+    ui->tableWidget_Souvenir->setRowCount(0);
+
+    for (int i = 0; i < souvenir.getSize(); i++)
+    {
+        count = ui->tableWidget_Souvenir->rowCount();
+        ui->tableWidget_Souvenir->insertRow(ui->tableWidget_Souvenir->rowCount());
+
+        QTableWidgetItem * souvenir_name = new QTableWidgetItem("$" + QString::fromStdString(souvenir[i].get_souvenir_name()));
+        QTableWidgetItem * souvenir_price = new QTableWidgetItem("$" + QString::fromStdString(souvenir[i].get_souvenir_price()));
+
+
+        souvenir_name->setTextAlignment(Qt::AlignCenter);
+        souvenir_price->setTextAlignment(Qt::AlignCenter);
+
+
+        ui->tableWidget_Souvenir->setItem(count, SOUVENIR_NAME, souvenir_name);
+        ui->tableWidget_Souvenir->setItem(count, SOUVENIR_PRICE, souvenir_price);
+
+        ui->tableWidget_Souvenir->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    }
+}
+
 bool Widget::checkInfo(QString stadiumLeague, QString stadiumName, QString teamName, QString address, QString city,
                         QString state, QString zip, QString phone, QString capacity, QString surface) {
     if (stadiumLeague == "" && stadiumName == "" && teamName == "" && address == ""

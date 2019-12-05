@@ -7,12 +7,12 @@
 #include <login.h>
 #include <add_team.h>
 #include <modifyinfo.h>
+#include "stadium_container.h"
+#include "souvenir_container.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
-
-#include "stadium_container.h"
 
 class Widget : public QWidget
 {
@@ -85,6 +85,14 @@ private slots:
     void on_pushButton_ModifyInformation_clicked();
 
     void on_pushButton_ReturnToAdminMenu_clicked();
+
+    void on_pushButton_AddSouvenir_clicked();
+
+    void on_pushButton_DeleteSouvenir_clicked();
+
+    void on_pushButton_PriceChange_clicked();
+
+    void on_pushButton_ReturnToAdminMenu2_clicked();
 
     void DisplayTable_MajorLeague();
 
@@ -182,6 +190,8 @@ private slots:
 
     void DisplayTable_MajorLeagueDateArtifGrass_Admin();
 
+    void DisplayTable_Souvenir();
+
     void DisplayTable_MajorLeague_Admin_2();
 
     bool checkInfo(QString, QString, QString, QString, QString,
@@ -190,8 +200,9 @@ private slots:
 private:
     QString Month[13] = {"January", "February", "March", "April", "May", "June",
                          "July", "August", "September", "October", "November", "December"};
-    stadium_container stadium;
     Ui::Widget *ui;
+    stadium_container stadium;
+    souvenir_container souvenir;
     QGraphicsScene * scene;
     QImage * img_Object;
     login *admin_Login;
@@ -200,6 +211,10 @@ private:
 
     enum Column {
         STADIUM_NAME, TEAM_NAME, ADDRESS, BOX_OFFICE,DATE_OPENED,CAPACITY, GRASS
+    };
+
+    enum Column1 {
+        SOUVENIR_NAME, SOUVENIR_PRICE
     };
 
 };

@@ -5,13 +5,16 @@
 #include <QTextStream>
 #include <QResource>
 #include <QString>
+#include "souvenir_container.h"
 #include "stadium_container.h"
 #include <iostream>
 
 using namespace std;
 
 void importStadium(QString fileName, stadium_container& stadium);
+void importSouvenir(QString fileName, souvenir_container& souvenir);
 void saveStadium (QString fileName, stadium_container& stadium);
+void saveSouvenir (QString fileName, souvenir_container& souvenir);
 
 void importStadium(QString fileName, stadium_container& stadium) {
     QString temp;
@@ -70,6 +73,34 @@ void importStadium(QString fileName, stadium_container& stadium) {
     inFile.close();
 }
 
+void importSouvenir(QString fileName, souvenir_container& souvenir) {
+    QString temp;
+    Souvenir toAdd;
+    int count = 0;
+    QFile inFile(fileName);
+    QTextStream in(&inFile);
+
+    if (!inFile.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        return;
+    }
+
+    while(!in.atEnd())
+    {
+        temp = in.readLine();
+        if(count == 0)
+        {
+            toAdd.set_souvenir_name(temp.toStdString());
+            count++;
+        }else if(count == 1)
+        {
+            toAdd.set_souvenir_price(temp.toStdString());
+            souvenir.add(toAdd);
+            count = 0;
+        }
+    }
+}
+
 void saveStadium (QString fileName, stadium_container& stadium) {
     QFile inFile(fileName);
     QTextStream outstream(&inFile);
@@ -87,6 +118,20 @@ void saveStadium (QString fileName, stadium_container& stadium) {
         outstream << QString::fromStdString(stadium[i].get_date_opened()) << endl;
         outstream << QString::fromStdString(stadium[i].get_seating_capacity()) << endl;
         outstream << QString::fromStdString(stadium[i].get_grass_type()) << endl;
+    }
+    inFile.close();
+}
+
+void saveSouvenir (QString fileName, souvenir_container& souvenir) {
+    QFile inFile(fileName);
+    QTextStream outstream(&inFile);
+
+    inFile.open(QIODevice::WriteOnly | QIODevice::Text);
+
+    for(int i = 0; i < souvenir.getSize(); i++)
+    {
+        outstream << QString::fromStdString(souvenir[i].get_souvenir_name()) << endl;
+        outstream << QString::fromStdString(souvenir[i].get_souvenir_price()) << endl;
     }
     inFile.close();
 }

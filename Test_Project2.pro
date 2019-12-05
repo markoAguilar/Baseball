@@ -22,8 +22,7 @@ SOURCES += \
     main.cpp \
     modifyinfo.cpp \
     souvenir.cpp \
-    souvenir.cpp \
-    souvenir.cpp \
+    souvenir_container.cpp \
     stadium.cpp \
     stadium_container.cpp \
     widget.cpp
@@ -35,12 +34,7 @@ HEADERS += \
     login.h \
     modifyinfo.h \
     souvenir.h \
-    souvenir.h \
-    souvenir.h \
-    souvenir.h \
-    souvenir.h \
-    souvenir.h \
-    souvenir.h \
+    souvenir_container.h \
     stadium.h \
     stadium_container.h \
     widget.h

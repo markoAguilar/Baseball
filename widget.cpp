@@ -2,6 +2,8 @@
 #include "ui_widget.h"
 #include "stadium.h"
 #include "stadium_container.h"
+#include "souvenir.h"
+#include "souvenir_container.h"
 #include "files.h"
 #include <string>
 #include <QLabel>
@@ -19,7 +21,7 @@ Widget::Widget(QWidget *parent)
     setWindowTitle("Baseball Vacation");
 
     QString fullpath;
-    QStringList title1;
+    QStringList title1, title2;
 
     QFont font = ui->pushButton_Menu->font();
     font.setPointSize(16);
@@ -31,11 +33,23 @@ Widget::Widget(QWidget *parent)
     font.setBold(true);
     ui->label_3->setFont(font);
     ui->label_3->setAlignment(Qt::AlignCenter);
-    ui->label_3->setStyleSheet("QLabel {background-color: rgba(0,0,0,0%); color: cyan;}");
+    ui->label_3->setStyleSheet("QLabel {background-color: rgba(0,0,0,0%); color: red;}");
 
     font.setPointSize(12);
     ui->label_4->setFont(font);
     ui->label_4->setStyleSheet("QLabel {background-color: rgba(0,0,0,0%); color: cyan;}");
+
+    ui->label_5->setFont(font);
+    ui->label_5->setStyleSheet("QLabel {background-color: rgba(0,0,0,0%); color: white;}");
+
+    ui->label_6->setFont(font);
+    ui->label_6->setStyleSheet("QLabel {background-color: rgba(0,0,0,0%); color: white;}");
+
+    ui->label_7->setFont(font);
+    ui->label_7->setStyleSheet("QLabel {background-color: rgba(0,0,0,0%); color: white;}");
+
+    ui->label_8->setFont(font);
+    ui->label_8->setStyleSheet("QLabel {background-color: rgba(0,0,0,0%); color: white;}");
 
     QString background_path = QApplication::applicationDirPath() + "/Baseball_Background.png";
     QPixmap background(background_path);
@@ -87,7 +101,6 @@ Widget::Widget(QWidget *parent)
     ui->comboBox_Major_Sort_Grass_Admin->addItem("Grass Type");
     ui->comboBox_Major_Sort_Grass_Admin->addItem("Real Grass");
     ui->comboBox_Major_Sort_Grass_Admin->addItem("Artificial Grass");
-
 
     QString format = "QPushButton {background-color: #A3C1DA; color: black;}";
 
@@ -173,9 +186,25 @@ Widget::Widget(QWidget *parent)
     ui->tableWidget_Major_Admin_2->setColumnCount(7);
     ui->tableWidget_Major_Admin_2->setHorizontalHeaderLabels(title1);
 
+    ui->tableWidget_Souvenir->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->tableWidget_Souvenir->horizontalHeader()->setFrameStyle(QFrame::Box | QFrame::Plain);
+    ui->tableWidget_Souvenir->setLineWidth(2);
+    ui->tableWidget_Souvenir->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableWidget_Souvenir->setColumnCount(2);
+    title2 << "Souvenir Name" << "Souvenir Price";
+    ui->tableWidget_Souvenir->setHorizontalHeaderLabels(title2);
+
+    fullpath = QApplication::applicationDirPath() + "/Baseball_Souvenir.txt";
+    importSouvenir(fullpath, souvenir);
 
     fullpath = QApplication::applicationDirPath() + "/data.txt";
     importStadium(fullpath, stadium);
+
+    ui->comboBox_CurrentSouvenir->addItem("Souvenir Name");
+
+    for (int i = 0; i < souvenir.getSize(); i++) {
+        ui->comboBox_CurrentSouvenir->addItem(QString::fromStdString(souvenir[i].get_souvenir_name()));
+    }
 
 }
 
@@ -519,7 +548,8 @@ void Widget::on_pushButton_ModifyStadium_clicked()
 
 void Widget::on_pushButton_SouvenirUpdate_clicked()
 {
-
+    ui->stackedWidget->setCurrentIndex(12);
+    DisplayTable_Souvenir();
 }
 
 void Widget::on_pushButton_ReturnToMain4_clicked()
@@ -853,6 +883,60 @@ void Widget::on_pushButton_ModifyInformation_clicked()
 }
 
 void Widget::on_pushButton_ReturnToAdminMenu_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(6);
+}
+
+void Widget::on_pushButton_AddSouvenir_clicked()
+{
+    QString fullpath = QApplication::applicationDirPath() + "/Baseball_Souvenir.txt";
+    QString newSouvenirName, newSouvenirPrice;
+
+    newSouvenirName = ui->lineEdit_AddSouvenirName->text();
+    newSouvenirPrice = ui->lineEdit_AddSouvenirPrice->text();
+
+    if (newSouvenirName != "" && newSouvenirPrice != "") {
+        souvenir.addItem(newSouvenirName.toStdString(), newSouvenirPrice.toStdString(), souvenir);
+    }
+    else
+        QMessageBox::information(this, "Error", "Either Souvenir Name or Price Was Not Fill Out.");
+
+    saveSouvenir(fullpath, souvenir);
+    DisplayTable_Souvenir();
+}
+
+void Widget::on_pushButton_DeleteSouvenir_clicked()
+{
+    QString fullpath = QApplication::applicationDirPath() + "/Baseball_Souvenir.txt";
+    QString deleteSouvenir;
+
+    deleteSouvenir = ui->lineEdit_DeleteSouvenir->text();
+
+    souvenir.removeItem(deleteSouvenir.toStdString(), souvenir);
+
+    saveSouvenir(fullpath, souvenir);
+    DisplayTable_Souvenir();
+}
+
+void Widget::on_pushButton_PriceChange_clicked()
+{
+    QString fullpath = QApplication::applicationDirPath() + "/Baseball_Souvenir.txt";
+    QString souvenir_Name = ui->comboBox_CurrentSouvenir->currentText();
+
+    for (int i = 0; i < souvenir.getSize(); i++) {
+        if (souvenir_Name.toStdString() == souvenir[i].get_souvenir_name() && ui->lineEdit_PriceChange->text() != "") {
+            souvenir[i].set_souvenir_price((ui->lineEdit_PriceChange->text()).toStdString());
+        }
+        if (souvenir_Name.toStdString() == souvenir[i].get_souvenir_name() && ui->lineEdit_PriceChange->text() == "") {
+            QMessageBox::warning(this, "Error", "No Price Was Inputted For Change.");
+        }
+    }
+
+    saveSouvenir(fullpath, souvenir);
+    DisplayTable_Souvenir();
+}
+
+void Widget::on_pushButton_ReturnToAdminMenu2_clicked()
 {
     ui->stackedWidget->setCurrentIndex(6);
 }
