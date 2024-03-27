@@ -11,6 +11,7 @@ Important Notes:
 
 ## Screenshots
 The main page that opens upon running the project. Along with the Main Menu that displays upon clicking the Menu button.
+<br>
 <img
   src="screenshots/mainPage.png"
   alt="Main Page Screenshot"
@@ -23,6 +24,7 @@ The main page that opens upon running the project. Along with the Main Menu that
   style="display: inline-block; margin: 0 auto; max-width: 200px">
 <br>
 Screenshots of the read baseball game data sorted according to the users selections made at the top of the GUI
+<br>
 <img
   src="screenshots/sortedData.png"
   alt="Main Page Screenshot"
@@ -35,6 +37,7 @@ Screenshots of the read baseball game data sorted according to the users selecti
   style="display: inline-block; margin: 0 auto; max-width: 200px">
 <br>
 A planned trip with the shortest path possible indicated by the program generated line from the current location to the stadium of choice
+<br>
 <img
   src="screenshots/plannedTrip.png"
   alt="Main Page Screenshot"
