@@ -4,6 +4,7 @@ This assignment was the culminating project for our C++ course. It required the 
 <img
   src="screenshots/mainPage.png"
   alt="Main Page Screenshot"
+  width="400px"
   style="display: inline-block; margin: 0 auto; max-width: 200px">
 
 <!--
