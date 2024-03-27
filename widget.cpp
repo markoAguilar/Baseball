@@ -7,6 +7,8 @@
 #include <QtCore>
 #include <QtGui>
 #include <QColor>
+#include <filesystem>
+using namespace std;
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -14,6 +16,7 @@ Widget::Widget(QWidget *parent)
 {
     ui->setupUi(this);
     setWindowTitle("Baseball Vacation");
+    ui->stackedWidget->setCurrentIndex(0);
 
     QString fullpath;
     QStringList title1;
@@ -29,19 +32,24 @@ Widget::Widget(QWidget *parent)
     ui->label_3->setFont(font);
     ui->label_3->setAlignment(Qt::AlignCenter);
     ui->label_3->setStyleSheet("QLabel {background-color: rgba(0,0,0,0%); color: cyan;}");
+    filesystem::path firstPart;
+    QString background_path = "../../../src/Baseball_Background.png";
+    //Removed the following line as the command does not return the project path but instead the path
+    //to the projects executable: QApplication::applicationDirPath() +
+    //Uncomment the next line to print out the path assigned
+    //cout << "Background Path: " << background_path.toStdString() << endl;
 
-    QString background_path = QApplication::applicationDirPath() + "/Baseball_Background.png";
     QPixmap background(background_path);
     background = background.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
-    palette.setBrush(QPalette::Background, background);
+    palette.setBrush(QPalette::Window, background); //QPalette::Background is now obsolete, replaced with QPalette::Window
     this->setPalette(palette);
 
-    QPixmap title(QApplication::applicationDirPath() + "/Baseball_Title.png");
+    QPixmap title( "../../../src/Baseball_Title.png"); //QApplication::applicationDirPath() +
     ui->label->setScaledContents(true);
     ui->label->setPixmap(title);
 
-    QPixmap title_vacation(QApplication::applicationDirPath() + "/large_vacation_time_title.png");
+    QPixmap title_vacation("../../../src/large_vacation_time_title.png"); //QApplication::applicationDirPath() +
     ui->label_2->setScaledContents(true);
     ui->label_2->setPixmap(title_vacation);
 
@@ -127,7 +135,7 @@ Widget::Widget(QWidget *parent)
     ui->tableWidget_American->setColumnCount(7);
     ui->tableWidget_American->setHorizontalHeaderLabels(title1);
 
-    fullpath = QApplication::applicationDirPath() + "/data.txt";
+    fullpath ="../../../src/data.txt"; // QApplication::applicationDirPath() +
     importStadium(fullpath, stadium);
 
 }
@@ -260,7 +268,7 @@ void Widget::on_pushButton_ReturnToMain1_clicked()
 void Widget::on_pushButton_DisplayMajorLeague_clicked()
 {
     ui->stackedWidget->setCurrentIndex(7);
-        QString fullpath = QApplication::applicationDirPath() + "/Major_League_Baseball_team_locations.png";
+        QString fullpath = "../../../src/Major_League_Baseball_team_locations.png"; //QApplication::applicationDirPath() +
 
         QPixmap pixmap = fullpath;
         QFile file(fullpath);
@@ -335,7 +343,7 @@ void Widget::on_pushButton_ReturnToMain2_clicked()
 void Widget::on_pushButton_DisplayNationalLeague_clicked()
 {
     ui->stackedWidget->setCurrentIndex(8);
-        QString fullpath = QApplication::applicationDirPath() + "/Major_League_Baseball_team_locations.png";
+        QString fullpath = "../../../src/Major_League_Baseball_team_locations.png"; //QApplication::applicationDirPath() +
 
         QPixmap pixmap = fullpath;
         QFile file(fullpath);
@@ -408,7 +416,7 @@ void Widget::on_pushButton_ReturnToMain3_clicked()
 void Widget::on_pushButton_DisplayAmericanLeague_clicked()
 {
     ui->stackedWidget->setCurrentIndex(9);
-        QString fullpath = QApplication::applicationDirPath() + "/Major_League_Baseball_team_locations.png";
+        QString fullpath = "../../../src/Major_League_Baseball_team_locations.png"; //QApplication::applicationDirPath() +
 
         QPixmap pixmap = fullpath;
         QFile file(fullpath);

@@ -7,7 +7,7 @@ using namespace std;
 void souvenir::read(){
 	a.clear();
 	ifstream infile;
-	infile.open("Baseball_Souvenir.txt");
+    infile.open("../.../Baseball_Souvenir.txt");
 	if(!infile)
 		cout<<"fail"<<endl;
 	souve temp;

@@ -22,31 +22,44 @@
      <height>601</height>
     </rect>
    </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
    <widget class="QWidget" name="page_Menu">
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>-50</y>
-       <width>681</width>
-       <height>231</height>
+       <x>180</x>
+       <y>30</y>
+       <width>441</width>
+       <height>211</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Sinhala MN</family>
+       <pointsize>32</pointsize>
+       <italic>false</italic>
+       <bold>true</bold>
+       <underline>true</underline>
+       <kerning>true</kerning>
+      </font>
+     </property>
      <property name="text">
-      <string/>
+      <string>Baseball Game: Trip Planner!</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>30</y>
-       <width>541</width>
-       <height>201</height>
+       <x>30</x>
+       <y>130</y>
+       <width>251</width>
+       <height>151</height>
       </rect>
      </property>
      <property name="text">
-      <string>TextLabel</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_Menu">
@@ -190,7 +203,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Return To Main Menu</string>
+      <string>Main Menu</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_DisplayMajorLeague">
@@ -222,7 +235,7 @@
        <x>20</x>
        <y>10</y>
        <width>381</width>
-       <height>30</height>
+       <height>38</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
@@ -235,7 +248,7 @@
       <item>
        <widget class="QPushButton" name="pushButton_SelectMajor">
         <property name="text">
-         <string>Select</string>
+         <string>Sort</string>
         </property>
        </widget>
       </item>
@@ -263,7 +276,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Return To Main Menu</string>
+      <string>Main Menu</string>
      </property>
     </widget>
     <widget class="QComboBox" name="comboBox_Cali_StartPoint_National">
@@ -295,7 +308,7 @@
        <x>20</x>
        <y>10</y>
        <width>381</width>
-       <height>31</height>
+       <height>38</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -308,7 +321,7 @@
       <item>
        <widget class="QPushButton" name="pushButton_SelectNational">
         <property name="text">
-         <string>Select</string>
+         <string>Sort</string>
         </property>
        </widget>
       </item>
@@ -322,7 +335,7 @@
        <x>20</x>
        <y>10</y>
        <width>381</width>
-       <height>31</height>
+       <height>38</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -335,7 +348,7 @@
       <item>
        <widget class="QPushButton" name="pushButton_SelectAmerican">
         <property name="text">
-         <string>Select</string>
+         <string>Sort</string>
         </property>
        </widget>
       </item>
@@ -351,7 +364,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Return To Main Menu</string>
+      <string>Main Menu</string>
      </property>
     </widget>
     <widget class="QTableWidget" name="tableWidget_American">
