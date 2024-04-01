@@ -1,4 +1,4 @@
-# Baseball
+# Baseball Trip Planner
 This assignment was the culminating project for our C++ course. The project implements the use of:
   - Reading and Writing to Files
   - Classes, constructors, destructors, pointers 
